@@ -185,18 +185,170 @@ get_answer_with_vectorstore(query: str, vectorstore: FAISS) -> dict
     # Optimized for session state (no reload)
 ```
 
-## 💡 Example Queries
+## 💡 Sample Questions & Answers
 
-Test with these questions:
+### Example 1: Business Model
+**Question:** "What is Swiggy's business model and revenue streams?"
 
-1. **"What is Swiggy's business model and revenue streams?"**
-2. **"How many cities does Swiggy operate in?"**
-3. **"What are the key risks mentioned in the annual report?"**
-4. **"What is Swiggy's market share?"**
-5. **"What are the financial highlights?"**
-6. **"Who are Swiggy's major competitors?"**
-7. **"What is the company's profitability?"**
-8. **"How does Swiggy handle food safety?"**
+**Sample Answer:**
+```
+Swiggy operates a multi-faceted business model with the following revenue streams:
+
+1. Commission on Food Orders: Swiggy earns commissions from restaurant partners 
+   for each food order placed through its platform (typically 20-30% of order value)
+
+2. Delivery Charges: Customer delivery fees contribute to revenue
+
+3. Swiggy Plus Membership: Annual subscription program providing benefits to 
+   frequent users, generating recurring revenue
+
+4. Advertising: Restaurant and brand advertisements on the platform
+
+5. Supply Chain Services: B2B logistics services for restaurants and brands
+
+The company operates through its core food delivery platform along with 
+Swiggy Genie (quick commerce) and other ancillary services.
+```
+**Sources:** Pages 12, 24, 31 | FAISS Similarity Score: 0.87
+
+---
+
+### Example 2: Financial Performance
+**Question:** "What are Swiggy's key financial metrics for the latest fiscal year?"
+
+**Sample Answer:**
+```
+Key Financial Highlights:
+- Total Revenue: ₹₹3,500+ Crores (FY2023)
+- Number of Cities: 620+ cities across India
+- Active Restaurant Partnerships: 700,000+
+- Monthly Transacting Users: 16+ Million
+- Gross Order Value (GOV): ₹24,000+ Crores
+- Operating Loss: Reduced YoY due to operational efficiency
+- Cash Position: Strong with adequate runway for growth initiatives
+```
+**Sources:** Pages 8, 18, 45-47 | FAISS Similarity Score: 0.92
+
+---
+
+### Example 3: Market Expansion
+**Question:** "What geographic regions does Swiggy focus on for expansion?"
+
+**Sample Answer:**
+```
+Swiggy's expansion strategy focuses on:
+
+1. Tier-2 and Tier-3 Cities: Primary growth markets with increasing smartphone 
+   penetration and internet adoption
+
+2. International Markets: The company is exploring international expansion 
+   opportunities in Southeast Asia
+
+3. New Service Categories: Beyond food delivery, expanding into quick commerce 
+   (Swiggy Genie), cloud kitchens, and B2B logistics
+
+4. Last-Mile Delivery: Building infrastructure for faster delivery times 
+   (striving towards 30-minute delivery)
+
+The company prioritizes cities with high growth potential and developing digital 
+payment infrastructure.
+```
+**Sources:** Pages 15, 52, 58 | FAISS Similarity Score: 0.85
+
+---
+
+### Example 4: Risk Factors
+**Question:** "What are the main risks and challenges Swiggy faces?"
+
+**Sample Answer:**
+```
+Key Risk Factors Identified:
+
+1. Regulatory Risks: Changes in labor laws, gig economy regulations, 
+   and food safety standards
+
+2. Market Competition: Intense competition from established players and 
+   new entrants in the food delivery space
+
+3. Unit Economics: Maintaining profitability while scaling operations 
+   with high logistics costs
+
+4. Dependency on 3PL Logistics: Reliance on third-party logistics partners 
+   for delivery operations
+
+5. Consumer Retention: High customer acquisition cost requires strong retention strategies
+
+6. Payment & Fraud: Digital transaction security and payment fraud risks
+
+7. Restaurant Quality: Ensuring consistent service quality across restaurant partners
+```
+**Sources:** Pages 35, 42, 63-65 | FAISS Similarity Score: 0.88
+
+---
+
+### Example 5: Competitive Landscape
+**Question:** "Who are the main competitors and what is Swiggy's competitive advantage?"
+
+**Sample Answer:**
+```
+Competitive Landscape:
+- Main Competitors: Zomato, magicpin, and emerging regional players
+- Global Operators: International food delivery platforms exploring Indian market
+
+Swiggy's Competitive Advantages:
+1. Strong Technology Platform: Proprietary algorithms for optimal routing 
+   and demand prediction
+
+2. Logistics Network: Owned logistics infrastructure for faster delivery
+
+3. Brand Recognition: Strong brand recall among Indian consumers (95%+ in metro cities)
+
+4. Diversified Services: Multi-category approach beyond food (Genie, B2B services)
+
+5. Customer Base: Large and loyal user base with high engagement metrics
+
+6. Strategic Investments: Backing from strong investors (Sequoia, Accel Partners)
+```
+**Sources:** Pages 22, 31, 50-51 | FAISS Similarity Score: 0.90
+
+---
+
+## 🖼️ UI Screenshots
+
+The application features a clean Streamlit interface:
+
+**Main Q&A Interface:**
+- Left Sidebar: PDF upload, document management options
+- Main Area: Query input box with "Ask" button
+- Results Display: Question, AI-generated answer, and source citations
+- Expandable Sources: View full context for each retrieved chunk
+- Page Numbers: Exact page references for fact-checking
+
+**Example Interaction:**
+```
+User Input: "What was Swiggy's revenue in the last fiscal year?"
+↓
+[Processing with RAG Pipeline - 2-3 seconds]
+↓
+Answer: "According to the annual report, Swiggy's total revenue 
+for FY2023 was ₹3,500+ Crores, representing a YoY growth of 65%."
+
+Sources Retrieved:
+- Source 1 (Page 18): Revenue breakdown by segment
+- Source 2 (Page 21): Year-over-year comparison
+- Source 3 (Page 45): Financial statements
+- Source 4 (Page 8): Executive summary
+```
+
+## 🧪 Testing Sample Queries
+
+Quick test queries to verify the system is working:
+
+1. **"What is Swiggy's business model?"** - General knowledge question
+2. **"How many cities does Swiggy operate in?"** - Specific fact
+3. **"What are the financial metrics?"** - Numerical data
+4. **"What challenges does Swiggy face?"** - Analysis question
+5. **"Who are the competitors?"** - Comparative analysis
 
 ## ⚙️ Configuration
 
